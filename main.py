@@ -8,9 +8,11 @@ def exibirMenu():
   print("-"*30)
 
 from MinhasClasses import MeuTurtle
+import os
 
 p1 = MeuTurtle()
 op = -1
+
 while(op != 0):
   exibirMenu()
   op = int(input("Digite a opção: "))
