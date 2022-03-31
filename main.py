@@ -10,22 +10,41 @@ def exibirMenu():
 from MinhasClasses import MeuTurtle
 import os
 
-p1 = MeuTurtle()
-op = -1
 
-while(op != 0):
-  print(chr(27) + "[2J")
-  exibirMenu()
-  op = int(input("Digite a opção: "))
-  if op == 1:
-    esc = int(input('Escolha o nome: (1/2) '))
-    while esc < 1 or esc > 2:
-      esc = int(input('Escolha o nome: (1/2) '))
-    p1.desenharNomes(esc)
-  elif op == 2:
-    p1.desenharForma()
-  elif op == 0:
-    print("Tudo parado.")
-    p1.saida()
-  else:
-    print("Opção inválida!")
+def turtleExample():
+  p1 = MeuTurtle()
+  op = -1
+
+  while(op != 0):
+    os.system('clear')
+    exibirMenu()
+    try:
+      op = int(input("Digite a opção: "))
+    except:
+      print("Formato Inválido.")
+      turtleExample()
+
+    if op == 1:
+      try:
+        esc = int(input('Escolha o nome: (1/2) '))
+      except:
+        print("Formato Inválido.")
+        turtleExample()
+      while esc < 1 or esc > 2:
+        try:
+          esc = int(input('Escolha o nome: (1/2) '))
+        except:
+          print("Formato Inválido.")
+          turtleExample()
+      p1.desenharNomes(esc)
+    elif op == 2:
+      p1.desenharForma()
+    elif op == 0:
+      print("Tudo parado.")
+      p1.saida()
+    else:
+      print("Opção inválida!")
+
+    
+# start
+turtleExample()
