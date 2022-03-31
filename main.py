@@ -14,6 +14,7 @@ p1 = MeuTurtle()
 op = -1
 
 while(op != 0):
+  print(chr(27) + "[2J")
   exibirMenu()
   op = int(input("Digite a opção: "))
   if op == 1:
